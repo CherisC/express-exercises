@@ -5,12 +5,16 @@ const port = 3000;
 var counter = 0;
 
 app.post('/increment', function(req, res) {
-    res.send(counter++);
+    counter++;
+    res.send("Current counter is + " + counter);
 })
 app.post('/decrement', function(req,res){
-    res.send(counter--);
+    counter--;
+    res.send("Current counter is " + counter);
 })
 app.get('/value', function(req, res) {
-    res.send(counter);
+    res.send("Current counter is " + counter);
 })
-app.listen('3000', () => console.log('counter server listening'));
+app.listen(port, () => console.log(`counter server listening`));
+//changed 3000 to port in app.listen
+//removed counter++/-- from res.send()
